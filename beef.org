@@ -8,11 +8,15 @@
    We need to see if we can make a clean translation to window's batch
    calling capabilities.
 
-* Questions we have
-
-** Is the workspace automatically cleaned between executions?
+** Workspace is not cleaned on subsequent executions
+   If files are created between builds, the files remain (see
+   trial-one, script1.sh). The directory reflects the presence of a
+   "build file" that should be cleaned up.
 
 *** Can git be cached + =git clean= or something similar
+
+* Questions we have
+
 
 ** Can we integrate and resolve steps from external gradle build files?
 
