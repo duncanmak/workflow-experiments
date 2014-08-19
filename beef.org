@@ -1,0 +1,24 @@
+
+* Problems we have with workflow
+
+** ShellTask is "sh" task 
+   See [[https://github.com/jenkinsci/durable-task-plugin/blob/master/src/main/java/org/jenkinsci/plugins/durabletask/BourneShellScript.java][durabletasks's BourneShellScript.java]] which is utilized by
+   [[https://github.com/jenkinsci/workflow-plugin/blob/d6f4a22e0660bce076f733c6c78f3613ef690c50/durable-task-step/src/main/java/org/jenkinsci/plugins/workflow/steps/durable_task/ShellStep.java#L50][workflow's ShellStep.java]]. 
+
+   We need to see if we can make a clean translation to window's batch
+   calling capabilities.
+
+* Questions we have
+
+** Is the workspace automatically cleaned between executions?
+
+*** Can git be cached + =git clean= or something similar
+
+** Can we integrate and resolve steps from external gradle build files?
+
+** How do we approach loading external files from a repo to form parts of the WF?
+
+
+
+
+
