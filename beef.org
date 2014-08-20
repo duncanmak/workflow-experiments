@@ -8,6 +8,12 @@
    We need to see if we can make a clean translation to window's batch
    calling capabilities.
 
+** Workflow script may cause the build to hang
+   We had a call like sh "./script_blah.sh $(($RANDOM%2))" which was
+   interpreted to be an interpolation. Groovy threw an exception and
+   the job was kept running and was not able to be cancelled. These
+   failures disappear from the build history upon restarting Jenkins.
+
 ** Workspace is not cleaned on subsequent executions
    If files are created between builds, the files remain (see
    trial-one, script1.sh). The directory reflects the presence of a
