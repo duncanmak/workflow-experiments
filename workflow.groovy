@@ -1,6 +1,6 @@
 // This might fail.
 node('master') {
-  git url: "git@github.com:duncanmak/workflow-experiments.git", branch: "trial-one"
+  git url: "git@github.com:duncanmak/workflow-experiments.git", branch: "trial-four"
   sh "scripts/workspace_status.sh"
   try {
     sh "scripts/script1.sh"
