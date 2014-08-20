@@ -5,7 +5,7 @@ node('master') {
   try {
     sh "scripts/script1.sh"
     // Generate a random fail (script calls 'exit $1')
-    sh "scripts/script1.sh $(($RANDOM%2))"
+    sh "scripts/script1.sh fail-randomly"
     echo "Build completed!"
   } catch (Throwable t) {
     t.printStackTrace()
