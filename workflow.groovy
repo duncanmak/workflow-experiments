@@ -1,10 +1,11 @@
-// This shouldn't fail.
+// This might fail.
 node('master') {
   git url: "git@github.com:duncanmak/workflow-experiments.git", branch: "trial-one"
   sh "scripts/workspace_status.sh"
   try {
     sh "scripts/script1.sh"
-    sh "scripts/script1.sh 0"
+    // Generate a random fail (script calls 'exit $1')
+    sh "scripts/script1.sh $(($RANDOM%2))"
     echo "Build completed!"
   } catch (Throwable t) {
     t.printStackTrace()
